@@ -1,0 +1,49 @@
+html(class='no-js')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+ 
+    title
+ 
+    meta(name='description', content='')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+ 
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/css/bootstrap-theme.min.css')
+    link(rel='stylesheet', href='/css/main.css')
+    script(src='/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js')
+    script(src='https://www.google.com/jsapi')
+    
+ 
+  body
+    //if lt IE 8
+      p.chromeframe.
+        You are using an <strong>outdated</strong> browser.
+        Please <a href="http://browsehappy.com/">upgrade your browser</a>
+        to improve your experience.
+    div.navbar.navbar-inverse.navbar-fixed.top
+        div.container
+            div.navbar-header
+                a( href='#').navbar-brand BOPlish-emu Frontend
+            div
+                form#formAddHost.navbar-form.navbar-right(role="form")
+                    div.form-group
+                        input(type="text" placeholder="Host IP" style="width:80px").form-control.input-sm
+                    div.form-group
+                        input(type="text" placeholder="Port" style="width:60px").form-control.input-sm                    
+                    button(type="submit").btn.btn-primary.btn-sm Add Host
+                    button(type="button" onclick="clickHandlerRefreshUI()").btn.btn-primary.btn-sm Refresh UI
+    div.container
+        div.row
+            div.col-md-9
+                h3= title
+                block content
+            div.col-md-3
+                include partial-host-nav
+    hr
+    footer
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
+    script(src='http://knockoutjs.com/downloads/jquery.tmpl.min.js')
+    script(src='/js/model.js')
+    script(src='/js/main.js')
+    block scripts

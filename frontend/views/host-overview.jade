@@ -1,0 +1,16 @@
+extends layout
+
+block content
+	script(type="text/x-jquery-tmpl" id="table-template")
+		table.table.table-hover.table-striped.table-condensed
+			tbody
+				tr
+					td Registered Hosts
+					td ${hostcount}
+				tr
+					td Total emulated peers
+					td ${peercount}
+	div#table
+
+block scripts
+	script(src='/js/host-overview.js')

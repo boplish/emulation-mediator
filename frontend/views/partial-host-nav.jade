@@ -1,0 +1,13 @@
+div#host-nav.hidden-xs.hidden-sm
+script(type="text/x-jquery-tmpl" id="host-nav-template")
+	ul(style="list-style-type:none; padding: 0px")
+		li(style)
+			| <a href="/host-detail/${id}">${ip}:${port}</a>
+			button(alt="Remove Host" style="float:none" onclick="clickHandlerRemoveHost(${id});").close
+				span(aria-hidden="true") &times;
+			button(style="margin-left: 5px" onclick="clickHanderStartPeer(${id});").btn.btn-default.btn-xs Start Peer
+			| {{tmpl($data) "#host-nav-peer-template"}}
+
+script(type="text/x-jquery-tmpl" id="host-nav-peer-template")
+	| <ul>{{each peers}}<li><a href="/peer-detail/${$value}">${$value.substring(0,8)}</a>
+	| <button style="float:none" alt="Abort Peer" type="button" class="close" onclick="clickHandlerAbortPeer(${id}, '${$value}')"><span aria-hidden="true"> &times;</span><span class="sr-only">Close</span></button></li>{{/each}}</ul>
