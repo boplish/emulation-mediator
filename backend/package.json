@@ -1,0 +1,31 @@
+{
+  "name": "boplish-emu-mediator-backend",
+  "version": "0.0.1",
+  "description": "BOPlish Emulation Mediator Backend",
+  "main": "run.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/boplish/boplish-emu"
+  },
+  "keywords": [
+    "boplish",
+    "webrtc",
+    "emulation"
+  ],
+  "author": "Christian Vogt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/boplish/boplish-emu/issues"
+  },
+  "homepage": "https://github.com/boplish/boplish-emu",
+  "dependencies": {
+    "commander": "^2.3.0",
+    "monk": "^0.9.0",
+    "restify": "^2.8.2",
+    "watershed": "^0.3.0",
+    "winston": "^0.7.3"
+  }
+}
