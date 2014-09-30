@@ -33,7 +33,7 @@ function updateHostNavUI(done) {
 
 // Button: Add host
 $('#formAddHost').submit(function(ev){
-	event.preventDefault();
+	ev.preventDefault();
 	var ip = $( "input:eq(0)" ).val();
 	var port = $( "input:eq(1)" ).val();
 	emu.addHost({ip: ip, port: port}, function() {
