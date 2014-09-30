@@ -21,7 +21,7 @@ router.get('/host-detail/:hostid', function(req, res) {
 	});
 });
 
-/* GET host-detail page. */
+/* GET peer-detail page. */
 router.get('/peer-detail/:peerid', function(req, res) {
 	res.render('peer-detail', {
 		title: 'Peer Detail ' + req.params.peerid,

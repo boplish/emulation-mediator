@@ -100,8 +100,8 @@ function rest_getHostStatus(req, res, next) {
 	if (!host) {
 		return next(new restify.ResourceNotFoundError('Host does not exist'));
 	}
-	host.refresh(function(err, config) {
-		res.send(config);
+	host.getStatus(function(err, status) {
+		res.send(status);
 		next();
 	});
 }

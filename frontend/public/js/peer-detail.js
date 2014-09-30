@@ -1,15 +1,18 @@
-function updateTable() {
+function updatePeerDetailTable() {
 	$('#table').empty();
 	var peerid = document.URL.split('/')[document.URL.split('/').length - 1];
-	/*var host = emu.hosts[hostid];
-	var ip = host.ip;
-	var port = host.port;
-	var peercount = host.peers.length'*/
-	$.tmpl('table-template', {host: '127.0.0.1:9000' , peercount: 0}).appendTo('#table');
+	var host;
+
+	for (var hostkey in emu.hosts) {
+		if (emu.hosts[hostkey].peers.indexOf(peerid) !== -1) {
+			host = emu.hosts[hostkey];
+		}
+	}
+	$.tmpl('table-template', {host: host}).appendTo('#table');
 }
 
 function clickHandlerRefreshUI() {
 	updateHostNavUI(function(){
-		updateTable();	
+		updatePeerDetailTable();	
 	});
 }

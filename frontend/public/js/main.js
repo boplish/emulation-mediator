@@ -6,7 +6,7 @@ function drawChart() {
 }
 
 /** App */
-var emu = new Emulation('http://localhost:1337');
+var emu = new Emulation('http://localhost:1336');
 
 /** Templates */
 $.template('host-nav-template', $('#host-nav-template'));
@@ -60,4 +60,6 @@ function clickHandlerRefreshUI() {
 }
 
 /** startup */
-clickHandlerRefreshUI();
+setInterval(function(){
+	clickHandlerRefreshUI();
+}, 1000);

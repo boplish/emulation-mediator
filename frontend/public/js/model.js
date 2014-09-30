@@ -33,25 +33,12 @@ Host.prototype = {
 				cb(req.responseText);
 			}
 		});
-	}
-}
-
-function Emulation(endpoint) {
-	this.hosts = {};
-	this.endpoint = endpoint;
-}
-
-Emulation.prototype = {
-	getHostDetail: function(hostId, cb) {
+	},
+	getHostStatus: function(cb) {
 		jQuery.ajax({
 			type: "GET",
-			url: this.endpoint + '/host' + '/' + hostId,
+			url: this.endpoint + '/host' + '/' + this.id,
 			success: function(status) {
-				/*var i;
-				for (i=0; i<hostList.length; i++) {
-					var config = hostList[i];
-					this.hosts[config.id] = new Host(config, this.endpoint);
-				}*/
 				if (cb) {
 					cb(null, status);
 				}
@@ -62,6 +49,29 @@ Emulation.prototype = {
 			}
 		});
 	},
+	getPeerStatus: function(cb) {
+		jQuery.ajax({
+			type: "GET",
+			url: this.endpoint + '/host' + '/' + this.id,
+			success: function(status) {
+				if (cb) {
+					cb(null, status);
+				}
+			}.bind(this),
+			error: function(req, status, err) {
+				console.log(req.responseText);
+				cb(req.responseText);
+			}
+		});
+	}
+};
+
+function Emulation(endpoint) {
+	this.hosts = {};
+	this.endpoint = endpoint;
+}
+
+Emulation.prototype = {
 	getHosts: function(cb) {
 		jQuery.ajax({
 			type: "GET",
@@ -130,4 +140,4 @@ Emulation.prototype = {
 			cb('Peer not found');
 		}
 	}
-}
+};
